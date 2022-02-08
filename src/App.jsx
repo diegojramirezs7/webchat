@@ -1,23 +1,66 @@
 import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import LoginPage from './pages/loginPage';
+import Home from './pages/home';
+import { AuthProvider } from './services/auth';
+import PrivatePageWrapper from './pages/privatePageWrapper';
+import Profile from './pages/profile';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  typography: {
+    // h2: {
+    //   color: "#fff",
+    // },
+    // body1: {
+    //   color: "#fff",
+    // }
+  },
+  palette: {
+    primary: {
+      main: "#777",
+    },
+  },
+});
+
+function RootContainer(props) {
+  return (
+    <ThemeProvider theme={theme}>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/"
+              element={
+                <PrivatePageWrapper>
+                  <Home />
+                </PrivatePageWrapper>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivatePageWrapper>
+                  <Profile />
+                </PrivatePageWrapper>
+              }
+            />
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
+  );
+}
+
 
 function App() {
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     // User is signed in, see docs for a list of available properties
-  //     // https://firebase.google.com/docs/reference/js/firebase.User
-  //     const uid = user.uid;
-  //     // ...
-  //   } else {
-  //     // User is signed out
-  //     // ...
-  //   }
-  // });
-
-  return (
-    <div className="App">
-      hello world
-    </div>
-  );
+  return <RootContainer />
 }
 
 export default App;

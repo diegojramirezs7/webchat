@@ -1,0 +1,37 @@
+[debug] [2022-02-08T06:08:52.706Z] ----------------------------------------------------------------------
+[debug] [2022-02-08T06:08:52.710Z] Command:       /Users/diegoramirez/.nvm/versions/node/v15.5.1/bin/node /Users/diegoramirez/.nvm/versions/node/v15.5.1/bin/firebase emulators:start
+[debug] [2022-02-08T06:08:52.710Z] CLI Version:   10.1.4
+[debug] [2022-02-08T06:08:52.710Z] Platform:      darwin
+[debug] [2022-02-08T06:08:52.710Z] Node Version:  v15.5.1
+[debug] [2022-02-08T06:08:52.729Z] Time:          Mon Feb 07 2022 22:08:52 GMT-0800 (Pacific Standard Time)
+[debug] [2022-02-08T06:08:52.729Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-02-08T06:08:52.733Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-02-08T06:08:52.806Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-02-08T06:08:52.806Z] > authorizing via FIREBASE_TOKEN environment variable
+[info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
+[debug] [2022-02-08T06:08:52.827Z] [hub] writing locator at /var/folders/40/p1vmjt5n3178m44zk6sh86580000gn/T/hub-fastchat7.json
+[debug] [2022-02-08T06:09:00.774Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-08T06:09:00.774Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-02-08T06:09:00.774Z] Starting Emulator UI with command {"binary":"node","args":["/Users/diegoramirez/.cache/firebase/emulators/ui-v1.6.4/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/diegoramirez/.cache/firebase/emulators/ui-v1.6.4/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-02-08T06:09:00.878Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4000/auth │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-02-08T06:09:01.840Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-02-08T06:09:01.843Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

@@ -13,14 +13,14 @@ import Profile from './pages/profile';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
-  typography: {
-    // h2: {
-    //   color: "#fff",
-    // },
-    // body1: {
-    //   color: "#fff",
-    // }
-  },
+  // typography: {
+  //   h2: {
+  //     color: "#fff",
+  //   },
+  //   body1: {
+  //     color: "#fff",
+  //   }
+  // },
   palette: {
     primary: {
       main: "#777",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,11 +17,15 @@ import Typography from '@mui/material/Typography';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import CreateIcon from '@mui/icons-material/Create';
-import ChatBubble from 'react-chat-bubble';
+import ChatMsg from '@mui-treasury/components/chatMsg/ChatMsg';
+import { authContext } from "../services/auth";
+import { Avatar, TextField } from '@mui/material';
+import CustomTextField from './customTextField';
 
 const drawerWidth = 240;
 
 export default function Sidebar(props) {
+    let auth = useContext(authContext);
     const { window } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
     const [showConvo, setShowConvo] = useState(false);
@@ -37,17 +41,14 @@ export default function Sidebar(props) {
                     {
                         text: "hello, how are you?",
                         datetime: Date(),
-                        type: 0,
                     },
                     {
                         text: "good, and you?",
                         datetime: Date(),
-                        type: 1,
                     },
                     {
                         text: "Banger baby",
                         datetime: Date(),
-                        type: 0,
                     }
                 ]
             },
@@ -58,66 +59,241 @@ export default function Sidebar(props) {
                     {
                         text: "hello, how are you?",
                         datetime: Date(),
-                        type: 0,
                     },
                     {
                         text: "good, and you?",
                         datetime: Date(),
-                        type: 1,
                     },
                     {
                         text: "Banger baby",
                         datetime: Date(),
-                        type: 0,
                     }
                 ]
             },
             {
-                name: "User 3",
+                name: "Emma Stone",
+                message: "some good old message",
+                image: "https://media.vanityfair.com/photos/55a674affff2c16856a6bd85/16:9/w_1280,c_limit/emma-stone-aloha-miscast.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "Katie Boulter ",
+                message: "some good old message",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Katie_Boulter_%2841917218900%29.jpg/1200px-Katie_Boulter_%2841917218900%29.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "User 1",
                 message: "some good old message",
                 messages: [
                     {
                         text: "hello, how are you?",
                         datetime: Date(),
-                        type: 0,
                     },
                     {
                         text: "good, and you?",
                         datetime: Date(),
-                        type: 1,
                     },
                     {
                         text: "Banger baby",
                         datetime: Date(),
-                        type: 0,
                     }
                 ]
             },
             {
-                name: "User 4",
+                name: "User 2",
                 message: "some good old message",
                 messages: [
                     {
                         text: "hello, how are you?",
                         datetime: Date(),
-                        type: 0,
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Katie_Boulter_%2841917218900%29.jpg/1200px-Katie_Boulter_%2841917218900%29.jpg"
                     },
                     {
                         text: "good, and you?",
                         datetime: Date(),
-                        type: 1,
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Katie_Boulter_%2841917218900%29.jpg/1200px-Katie_Boulter_%2841917218900%29.jpg"
-
                     },
                     {
                         text: "Banger baby",
                         datetime: Date(),
-                        type: 0,
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Katie_Boulter_%2841917218900%29.jpg/1200px-Katie_Boulter_%2841917218900%29.jpg"
                     }
                 ]
-            }
+            },
+            {
+                name: "Emma Stone",
+                message: "some good old message",
+                image: "https://media.vanityfair.com/photos/55a674affff2c16856a6bd85/16:9/w_1280,c_limit/emma-stone-aloha-miscast.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "User 2",
+                message: "some good old message",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "Emma Stone",
+                message: "some good old message",
+                image: "https://media.vanityfair.com/photos/55a674affff2c16856a6bd85/16:9/w_1280,c_limit/emma-stone-aloha-miscast.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "Katie Boulter ",
+                message: "some good old message",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Katie_Boulter_%2841917218900%29.jpg/1200px-Katie_Boulter_%2841917218900%29.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "Emma Stone",
+                message: "some good old message",
+                image: "https://media.vanityfair.com/photos/55a674affff2c16856a6bd85/16:9/w_1280,c_limit/emma-stone-aloha-miscast.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "User 2",
+                message: "some good old message",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "Emma Stone",
+                message: "some good old message",
+                image: "https://media.vanityfair.com/photos/55a674affff2c16856a6bd85/16:9/w_1280,c_limit/emma-stone-aloha-miscast.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
+            {
+                name: "Katie Boulter ",
+                message: "some good old message",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Katie_Boulter_%2841917218900%29.jpg/1200px-Katie_Boulter_%2841917218900%29.jpg",
+                messages: [
+                    {
+                        text: "hello, how are you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "good, and you?",
+                        datetime: Date(),
+                    },
+                    {
+                        text: "Banger baby",
+                        datetime: Date(),
+                    }
+                ]
+            },
         ];
         setConvos(temps);
     }, []);
@@ -158,7 +334,7 @@ export default function Sidebar(props) {
                 {convos.map((convo, index) => (
                     <ListItem button key={index} onClick={() => selectConvo(index)}>
                         <ListItemIcon>
-                            <ContactPageIcon />
+                            <Avatar src={convo.image} />
                         </ListItemIcon>
                         <ListItemText primary={convo.name} />
                     </ListItem>
@@ -189,11 +365,67 @@ export default function Sidebar(props) {
 
     const Conversation = (convo) => {
         return (
-            <div>
+            <div display={{ position: "relative" }}>
                 {/* <Typography>
                     {convo.message} from {convo.name} is the active convo
                 </Typography> */}
-                <ChatBubble messages={convos[activeIndex].messages} onNewMessage={createMessage} />
+                <ChatMsg
+                    avatar={convo.image}
+                    messages={[
+                        'Hi Jenny, How r u today?',
+                        'Did you train yesterday',
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
+                    ]}
+                />
+                <ChatMsg
+                    side={'right'}
+                    messages={[
+                        "Great! What's about you?",
+                        'Of course I did. Speaking of which check this out',
+                    ]}
+                />
+                <ChatMsg
+                    avatar={convo.image}
+                    messages={[
+                        "Great! What's about you?",
+                        'Of course I did. Speaking of which check this out',
+                    ]}
+                />
+                <ChatMsg
+                    side={'right'}
+                    messages={[
+                        'Hi Jenny, How r u today?',
+                        'Did you train yesterday',
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
+                    ]}
+                />
+                <ChatMsg
+                    avatar={convo.image}
+                    messages={[
+                        'Hi Jenny, How r u today?',
+                        'Did you train yesterday',
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
+                    ]}
+                />
+                <ChatMsg
+                    avatar={convo.image}
+                    messages={[
+                        'Hi Jenny, How r u today?',
+                        'Did you train yesterday',
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
+                    ]}
+                />
+                <ChatMsg
+                    side={'right'}
+                    messages={[
+                        'Hi Jenny, How r u today?',
+                        'Did you train yesterday',
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
+                    ]}
+                />
+                <div style={{ position: "fixed", bottom: 0, left: `${drawerWidth}px`, width: `calc(100% - ${drawerWidth}px)`, backgroundColor: "#777", height: "7.5vh" }}>
+                    <TextField fullWidth InputProps={{ style: { color: '#fff' } }} />
+                </div>
             </div>
         );
     }
@@ -210,7 +442,6 @@ export default function Sidebar(props) {
             >
                 <Toolbar>
                     <IconButton
-                        color="inherit"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -219,7 +450,7 @@ export default function Sidebar(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Something
+                        {(showConvo) ? convos[activeIndex].name : options[activeIndex].name}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -256,7 +487,7 @@ export default function Sidebar(props) {
             </Box>
             <Box
                 component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+                sx={{ flexGrow: 1, p: 2, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
                 {/* <Typography paragraph>
